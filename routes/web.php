@@ -12,8 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('create'));
 });
+Route::view('s/create', 'statements.create.simple')->name('create');
+Route::view('s/create/advanced', 'statements.create.advanced')->name('create_advanced');
 
-Route::post('s', 'StatementController@store');
+Route::post('s', 'StatementController@store')->name('statement');
 Route::get('s/{statement}', 'StatementController@show');

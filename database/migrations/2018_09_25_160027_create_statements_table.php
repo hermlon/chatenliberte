@@ -15,8 +15,10 @@ class CreateStatementsTable extends Migration
     {
         Schema::create('statements', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('body', 40);
-            $table->timestamp('delete_by')->default(NULL);
+            $table->string('title', 200);
+            $table->string('subtitle', 100)->nullable();
+            $table->string('img')->nullable();
+            $table->timestamp('delete_by')->nullable();
             $table->timestamps();
         });
     }

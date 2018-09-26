@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Statement extends Model
 {
-    protected $fillable = ['body', 'delete_by'];
+    protected $fillable = ['title', 'subtitle', 'img', 'delete_by'];
 }

@@ -24,11 +24,13 @@ class StatementController extends Controller
   public function store()
   {
     $this->validate(request(), [
-      'statement' => 'required|max:40'
+      'title' => 'required|max:40'
     ]);
 
     $statement = Statement::create([
-      'body' => request('statement')
+      'title' => request('title'),
+      'subtitle' => request('subtitle'),
+      'img' => request('img')
     ]);
 
     return redirect()->action('StatementController@show', compact('statement'));
