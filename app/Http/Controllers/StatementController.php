@@ -12,7 +12,7 @@ class StatementController extends Controller
   {
     if(str_contains($request->header('User-Agent'), 'WhatsApp'))
     {
-      return view('statements.title', compact('statement'));
+      return view('statements.show_whatsapp', compact('statement'));
     }
     else
     {
