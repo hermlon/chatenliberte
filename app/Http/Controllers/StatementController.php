@@ -24,7 +24,7 @@ class StatementController extends Controller
   public function store()
   {
     $this->validate(request(), [
-      'title' => 'required|max:40'
+      'title' => 'required'
     ]);
 
     $statement = Statement::create([
