@@ -6,5 +6,7 @@
     <meta property="og:description" content="{{ $statement->subtitle }}" />
     <meta property="og:image" content="{{ $statement->img }}" />
   </head>
-  <body></body>
+  <body>
+    <p>When you see this you successfully set your user agent to contain "WhatsApp".</p>
+  </body>
 </html>

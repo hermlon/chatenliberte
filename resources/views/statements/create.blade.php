@@ -8,7 +8,6 @@
     <form class="form-signin" method="POST" action="{{ route('statement') }}">
       @csrf
 
-      <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Your statement:</h1>
 
       <div class="form-group">
@@ -22,6 +21,9 @@
 
       @include('layouts.errors')
     </form>
+
+    @include('layouts.logo')
+
   </div>
 
 @endsection

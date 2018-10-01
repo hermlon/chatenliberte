@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 Route::view('s/create', 'statements.create.simple')->name('create');
 Route::view('s/create/advanced', 'statements.create.advanced')->name('create_advanced');
+Route::view('about', 'about')->name('about');
 
 Route::post('s', 'StatementController@store')->name('statement');
 Route::get('s/{statement}', 'StatementController@show');

@@ -41,3 +41,12 @@ body {
 .advanced-hint {
   padding-right: 5px;
 }
+
+.logo-text {
+  color: #888888;
+  font-size: 1.6em;
+}
+
+.logo-div {
+  padding-top: 70px;
+}
