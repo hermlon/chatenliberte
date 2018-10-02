@@ -8,17 +8,18 @@ use App\Statement;
 
 class StatementController extends Controller
 {
-  public function show(Request $request, Statement $statement)
+  public function show(Request $request, $id)
   {
     if(str_contains($request->header('User-Agent'), 'WhatsApp'))
     {
+      $statement = Statement::find($id);
       $statement->delete();
       return view('statements.show_whatsapp', compact('statement'));
     }
     else
     {
-      $link = action('StatementController@show', $statement);
-      return view('statements.show', compact('statement', 'link'));
+      $link = action('StatementController@show', $id);
+      return view('statements.show', compact('link'));
     }
   }
 
@@ -34,6 +35,6 @@ class StatementController extends Controller
       'img' => request('img')
     ]);
 
-    return redirect()->action('StatementController@show', compact('statement'));
+    return redirect()->action('StatementController@show', $statement->id);
   }
 }
