@@ -5,13 +5,13 @@
 @section('content')
 
   <div class="container">
-    <form class="form-signin" method="POST" action="{{ route('statement') }}">
+    <form class="form-signin" method="POST" action="{{ route('statement') }}" enctype="multipart/form-data">
       @csrf
 
       <h1 class="h3 mb-3 font-weight-normal">Your statement:</h1>
 
       <div class="form-group">
-        <label for="title" class="sr-only">Statement:</label>
+        <label for="title" class="sr-only">Your statement:</label>
         <input type="text" id="title" name="title" class="form-control" placeholder="Some statement" autofocus required>
       </div>
 

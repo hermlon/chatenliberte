@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use App\Statement;
 
@@ -23,16 +24,27 @@ class StatementController extends Controller
     }
   }
 
-  public function store()
+  public function store(Request $request)
   {
-    $this->validate(request(), [
+    $this->validate($request, [
       'title' => 'required'
     ]);
+
+    $imglink = request('img');
+
+    if ($request->hasFile('image')) {
+      $image = $request->image;
+
+      if($image->isValid()) {
+        $path = $image->store('images', 'public');
+        $imglink = url(Storage::url($path));
+      }
+    }
 
     $statement = Statement::create([
       'title' => request('title'),
       'subtitle' => request('subtitle'),
-      'img' => request('img')
+      'img' => $imglink
     ]);
 
     return redirect()->action('StatementController@show', $statement->id);

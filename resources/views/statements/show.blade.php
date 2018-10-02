@@ -13,7 +13,7 @@
         <span>Share via WhatsApp</span>
       </a>
 
-      <a href="{{ route('create') }}" class="nounderline">
+      <a href="{{ route('create') }}" class="nounderline" role="button">
         <button class="btn btn-lg btn-default btn-block btn-margin">Create your own</button>
       </a>
 
