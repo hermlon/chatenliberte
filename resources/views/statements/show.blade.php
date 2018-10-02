@@ -13,6 +13,10 @@
         <span>Share via WhatsApp</span>
       </a>
 
+      <a href="{{ route('create') }}" class="nounderline">
+        <button class="btn btn-lg btn-default btn-block btn-margin">Create your own</button>
+      </a>
+
       @include('layouts.logo')
     </div>
   </div>
