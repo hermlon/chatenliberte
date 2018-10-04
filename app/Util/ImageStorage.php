@@ -3,6 +3,7 @@
 namespace App\Util;
 
 use Storage;
+use Illuminate\Support\Str;
 
 class ImageStorage {
 
@@ -11,7 +12,7 @@ class ImageStorage {
     $hash = Str::random(40);
     $filename = 'images/' . $hash . '.' . 'jpeg';
     Storage::disk($disk)->put($filename, $img);
-    return Storage::url($filename);
+    return $disk . '/' . $filename;
   }
 
 }

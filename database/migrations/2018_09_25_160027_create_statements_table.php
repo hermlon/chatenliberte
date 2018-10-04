@@ -18,7 +18,7 @@ class CreateStatementsTable extends Migration
             $table->string('title', 200);
             $table->string('subtitle', 100)->nullable();
             $table->string('img')->nullable();
-            $table->timestamp('delete_by')->nullable();
+            $table->string('localimg')->nullable();
             $table->timestamps();
         });
     }

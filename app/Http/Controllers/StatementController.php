@@ -32,7 +32,7 @@ class StatementController extends Controller
       'title' => 'required'
     ]);
 
-    $imglink = request('img');
+    $localimg = NULL;
 
     if ($request->hasFile('image')) {
       $image = $request->image;
@@ -41,15 +41,15 @@ class StatementController extends Controller
 
         $img_res = Image::make($image)->fit(300, 300);
 
-        $path = ImageStorage::storeImage($img_res, 'public');
-        $imglink = url($path);
+        $localimg = ImageStorage::storeImage($img_res, 'public');
       }
     }
 
     $statement = Statement::create([
       'title' => request('title'),
       'subtitle' => request('subtitle'),
-      'img' => $imglink
+      'img' => request('img'),
+      'localimg' => $localimg
     ]);
 
     return redirect()->action('StatementController@show', $statement->id);
