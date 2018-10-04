@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 use App\Statement;
+use Image;
+use Storage;
+use App\Util\ImageStorage;
 
 class StatementController extends Controller
 {
@@ -36,8 +38,11 @@ class StatementController extends Controller
       $image = $request->image;
 
       if($image->isValid()) {
-        $path = $image->store('images', 'public');
-        $imglink = url(Storage::url($path));
+
+        $img_res = Image::make($image)->fit(300, 300);
+
+        $path = ImageStorage::storeImage($img_res, 'public');
+        $imglink = url($path);
       }
     }
 
